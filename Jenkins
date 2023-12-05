@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://your.git.repo.url.git'
+                git 'git@github.com:gauravsharma2586/Test_Git.git'
             }
         }
 
@@ -29,8 +29,8 @@ pipeline {
                 script {
                     // Run the Ansible playbook
                     ansiblePlaybook(
-                        playbook: 'path/to/your/playbook.yml',
-                        inventory: 'path/to/your/inventory.ini',
+                        playbook: 'playbook/Host-Setup.yml',
+                        inventory: 'inventory.ini',
                         extras: '-e "variable=value"',
                         colorized: true
                     )
