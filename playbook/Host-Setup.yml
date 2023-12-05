@@ -1,6 +1,6 @@
 ---
 - name: Deploy on Ubuntu machine
-  hosts: servers
+  hosts: all
   gather_facts: true
   ignore_errors: true
   become_method: sudo 
