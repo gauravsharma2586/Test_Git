@@ -1,0 +1,9 @@
+---
+- name: Deploy on Ubuntu machine
+  hosts: servers
+  gather_facts: true
+  ignore_errors: true
+  become_method: sudo 
+  become: true
+  roles:
+            - Docker-Setup
