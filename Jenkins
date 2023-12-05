@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'git@github.com:gauravsharma2586/Test_Git.git'
+                git checkout main 'git@github.com:gauravsharma2586/Test_Git.git'
             }
         }
 
