@@ -42,6 +42,7 @@ pipeline {
     post {
         always {
             // Clean up or perform any other post-build actions
+            echo 'This will always run'
         }
     }
 }
