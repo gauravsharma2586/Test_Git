@@ -1,0 +1,12 @@
+---
+- name: Check Docker & Docker-Compose installed
+  stat:
+    path: /usr/local/bin/docker-compose
+  become: true
+  register: docker_current_version
+
+- name: Setting Up Docker & Docker-Compose on Ubuntu
+  include: mobile_docker_ubuntu.yml
+  when:
+    
+    - ansible_distribution == 'Ubuntu'
