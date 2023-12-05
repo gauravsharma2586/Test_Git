@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+
+    environment {
+        ANSIBLE_VERSION = '2.9.27'  // Specify the Ansible version you want to use
+        ANSIBLE_HOME = "/tmp/ansible-${ANSIBLE_VERSION}"
+        PATH = "$PATH:${ANSIBLE_HOME}/bin"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://your.git.repo.url.git'
+            }
+        }
+
+        stage('Install Ansible') {
+            steps {
+                script {
+                    // Install Ansible
+                    sh "pip install --upgrade pip"
+                    sh "pip install ansible==${ANSIBLE_VERSION}"
+                }
+            }
+        }
+
+        stage('Run Ansible Playbook') {
+            steps {
+                script {
+                    // Run the Ansible playbook
+                    ansiblePlaybook(
+                        playbook: 'path/to/your/playbook.yml',
+                        inventory: 'path/to/your/inventory.ini',
+                        extras: '-e "variable=value"',
+                        colorized: true
+                    )
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up or perform any other post-build actions
+        }
+    }
+}
