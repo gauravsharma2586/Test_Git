@@ -8,7 +8,7 @@ ip_list_ul = []
 
 for ip in IPs:
     second_octate = int(ip.split('.')[1][:])
-    if (second_octate == 64) or (second_octate == 65) or (second_octate == 150) or (
+    if (second_octate == 168) or (second_octate == 65) or (second_octate == 150) or (
             second_octate == 147) or (second_octate == 100) or (second_octate == 146) or (second_octate == 151):
         ip_list_ul.append(ip)
 
