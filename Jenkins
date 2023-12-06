@@ -34,7 +34,7 @@ pipeline {
                     // Run the Ansible playbook
                     ansiblePlaybook(
                         playbook: '${WORKSPACE}/playbook/Host-Setup.yml',
-                        inventory: '${WORKSPACE}/inventory.json'',
+                        inventory: '${WORKSPACE}/playbook/inventory.json'',
                         extras: '-e "variable=value"',
                         colorized: true
                     )
