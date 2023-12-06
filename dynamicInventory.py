@@ -51,6 +51,6 @@ json_object = json.dumps(data, indent=2)
 
 root_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 print(root_path)
-file_path = os.path.join(root_path, 'ansible/inventory/inventory.json')
+file_path = os.path.join(root_path, 'playbook/inventory.json')
 with open(file_path, "w") as outfile:
     outfile.write(json_object)
