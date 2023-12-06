@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters {
+        string(name: 'TARGET_IP', defaultValue: '', description: 'IP address of the target machine')
+    }
 
     environment {
         ANSIBLE_VERSION = '2.9.27'  // Specify the Ansible version you want to use
