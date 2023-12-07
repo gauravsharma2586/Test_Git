@@ -35,12 +35,11 @@ pipeline {
             steps {
                 script {
                     // Run the Ansible playbook
-                    ansiblePlaybook(
-                        playbook: '${WORKSPACE}/playbook/Host-Setup.yml',
-                        inventory: '${WORKSPACE}/inventory/inventory.json',
-                        extras: '-e "variable=value"',
-                        colorized: true
-                    )
+                     // Set the environment variable for Ansible playbook
+                    withEnv(['TARGET_IP_ENV=${params.TARGET_IP}']) {
+                        // Run Ansible playbook using the environment variable
+                        sh 'ansible-playbook -i ${TARGET_IP_ENV}, path/to/your/playbook.yml'
+                    }
                 }
             }
         }
