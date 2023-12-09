@@ -2,6 +2,8 @@ pipeline {
     agent any
     parameters {
         string(name: 'TARGET_IP', defaultValue: '', description: 'IP address of the target machine')
+        string(name: 'SSH_USERNAME', defaultValue: '', description: 'SSH username for Ansible connection')
+        password(name: 'SSH_PASSWORD', defaultValue: '', description: 'SSH password for Ansible connection')
     }
 
     environment {
