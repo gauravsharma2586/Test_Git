@@ -40,7 +40,7 @@ pipeline {
                      // Set the environment variable for Ansible playbook
                      // withEnv(['TARGET_IP_ENV=${TARGET_IP}']) {
                         // Run Ansible playbook using the environment variable
-                        sh "ansible-playbook -i '${params.TARGET_IP}},' playbook/Host-Setup.yml --extra-vars='ansible_ssh_pass=${params.SSH_PASSWORD}'"
+                        sh "ansible-playbook -i '${params.TARGET_IP}},' playbook/Host-Setup.yml --user=${params.SSH_USERNAME} --extra-vars='ansible_ssh_pass=${params.SSH_PASSWORD}'"
                     //}
                 }
             }
