@@ -39,7 +39,7 @@ pipeline {
                      // withEnv(['TARGET_IP_ENV=${TARGET_IP}']) {
                         // Run Ansible playbook using the environment variable
                         sh 'ansible-playbook -i ${params.TARGET_IP}}, ${WORKSPACE}/playbook/Host-Setup.yml'
-                    }
+                    //}
                 }
             }
         }
